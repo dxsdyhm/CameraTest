@@ -40,6 +40,9 @@ public class CameraActivity extends AppCompatActivity {
             return;
         }
         camera = Camera.open(0);
+        Camera.Parameters parameters = camera.getParameters();
+        parameters.setPreviewSize(1280, 720);
+        camera.setParameters(parameters);
         camera.setPreviewCallback(new Camera.PreviewCallback() {
             @Override
             public void onPreviewFrame(byte[] bytes, Camera camera) {
